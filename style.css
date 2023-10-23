@@ -1,0 +1,396 @@
+/* ---------- General Settings ---------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --base-font-family: "Roboto Slab", serif;
+  --base-font-size: 25px;
+  --text-color: black;
+  --base-margin: 15px;
+  --base-small-margin: 5px;
+  --color-hover-toc-link-bg: #d6c1f55e;
+  --sidebar-toc-bg-color: #f5e9da;
+  --main-contents-bg-color: #f7ebdc;
+  --green-complementary-color-1: #2cdec0;
+  --green-complementary-color-2: #009179;
+  --orange-complementary-color-1: #de5f2c;
+  --blue-complementary-color-1: #2ca4de;
+  --blue-complementary-color-2: #006291;
+  --blue-complementary-color-3: #25aff5;
+  --pdf-file-bg-color: #e62143;
+  --pdf-file-workbook-bg-color: #fa8128;
+  --audio-file-bg-color: #1e3050;
+  --word-file-bg-color: #63d5ca;
+  --excel-file-bg-color: #50c878;
+  --html-file-bg-color: #ed7117;
+  --google-drive-folder-bg-color: #dbb85a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: var(--base-font-size);
+}
+
+body {
+  line-height: 1.5;
+  font-family: var(--base-font-family);
+  background-color: var(--main-contents-bg-color);
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+/* ----------- Font Stylling -----------  */
+
+h2,
+.toc-level-2 > span {
+  color: var(--green-complementary-color-1);
+}
+
+h3,
+.toc-level-3 > span {
+  color: var(--orange-complementary-color-1);
+}
+
+h4,
+.toc-level-4 > span {
+  color: var(--green-complementary-color-2);
+}
+
+/* ----------- End of Font Stylling -----------  */
+
+/* ------ Anchor Link Styling ------  */
+
+h4 > a {
+  color: var(--blue-complementary-color-3);
+}
+
+h4 > a:hover {
+  color: var(--blue-complementary-color-1);
+}
+
+h4 > a:visited {
+  color: var(--blue-complementary-color-2);
+}
+
+/* ------ End of Anchor Link Styling ------  */
+
+h2,
+h3,
+h4,
+h5 {
+  margin: var(--base-margin) 0;
+}
+
+.divider {
+  height: 1px;
+  width: 30%;
+  background-color: black;
+  margin: 25px auto;
+}
+
+p {
+  padding: 0 var(--base-margin);
+}
+
+/* Sidebar TOC Settings */
+
+#sidebar-toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  width: 30vw;
+  padding: var(--base-margin);
+  background-color: var(--sidebar-toc-bg-color);
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  #sidebar-toc {
+    width: 100%;
+    /* left: -100vw; */
+  }
+}
+
+.sidebar-toc-hide {
+  display: none;
+  /* position: relative; */
+}
+
+#sidebar-toc > h1 {
+  text-align: center;
+}
+
+/* Styling TOC  */
+
+.toc a {
+  text-decoration: none;
+  display: block;
+  padding: 5px 0 5px 5px;
+  color: var(--text-color);
+}
+
+.toc a:hover {
+  background-color: var(--color-hover-toc-link-bg);
+  border-radius: var(--base-small-margin);
+}
+
+/* Main Contents Settings */
+
+main {
+  margin-left: 30vw;
+  /* border: 1px solid black; */
+  /* height: 100%; */
+  /* overflow-x: hidden; */
+  overflow-y: auto;
+  padding: var(--base-margin);
+}
+
+.main-contents-full-width {
+  margin-left: 0;
+  padding: var(--base-margin) 20vw;
+}
+
+@media screen and (max-width: 768px) {
+  .main-contents-full-width {
+    padding: var(--base-margin);
+  }
+}
+
+main > h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-left: 0;
+  }
+}
+
+/* Styling section levels */
+
+.toc-level-2 {
+  font-weight: 900;
+}
+
+.toc-level-3 {
+  margin-left: var(--base-small-margin);
+  /* font-weight: 500; */
+}
+
+.toc-level-4 {
+  margin-left: calc(2 * var(--base-small-margin));
+}
+
+.toc-level-5 {
+  margin-left: calc(3 * var(--base-small-margin));
+}
+
+.toc-level-6 {
+  margin-left: calc(4 * var(--base-small-margin));
+}
+
+/* Styling the Button - General Settings */
+
+button {
+  padding: var(--base-margin);
+  right: var(--base-small-margin);
+  bottom: var(--base-small-margin);
+  border-radius: var(--base-small-margin);
+  border: 1px solid black;
+}
+
+/* Show Hide Side Bar Button Styling */
+
+.show-hide-sidebar-toc-btn {
+  font-family: var(--base-font-family);
+  background-color: var(--main-contents-bg-color);
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.show-hide-sidebar-toc-btn:hover {
+  cursor: pointer;
+  background-color: var(--orange-complementary-color-1);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* Styling the Listening File */
+
+.listening-file {
+  color: black;
+  text-decoration: none;
+  margin: var(--base-margin);
+  padding: var(--base-margin);
+  border: 1px solid black;
+  border-radius: var(--base-small-margin);
+  display: inline-block;
+}
+
+.listening-file:hover {
+  background-color: var(--green-complementary-color-1);
+}
+
+/* Styling PDF File, PDF File WorkBook, Audio File, Word File, Excel File  */
+
+.pdf-file,
+.audio-file,
+.pdf-file-workbook,
+.word-file,
+.excel-file,
+.html-file,
+.drive-folder {
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  border-radius: 5px;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  margin: var(--base-small-margin) var(--base-margin);
+  transition: all 250ms;
+  cursor: pointer;
+  vertical-align: baseline;
+}
+
+.pdf-file {
+  background-color: var(--pdf-file-bg-color);
+}
+
+.pdf-file-workbook {
+  background-color: var(--pdf-file-workbook-bg-color);
+}
+
+.audio-file {
+  background-color: var(--audio-file-bg-color);
+}
+
+.word-file {
+  background-color: var(--word-file-bg-color);
+}
+
+.excel-file {
+  background-color: var(--excel-file-bg-color);
+}
+
+.html-file {
+  background-color: var(--html-file-bg-color);
+}
+
+.drive-folder {
+  background-color: var(--google-drive-folder-bg-color);
+}
+
+.pdf-file::before,
+.pdf-file-workbook::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f1c1";
+  margin-right: 5px;
+}
+
+.pdf-file:hover {
+  box-shadow: var(--pdf-file-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.pdf-file-workbook:hover {
+  box-shadow: var(--pdf-file-workbook-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.audio-file::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f144";
+  margin-right: 5px;
+}
+
+.audio-file:hover {
+  box-shadow: var(--audio-file-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.word-file::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f1c2";
+  margin-right: 5px;
+}
+
+.word-file:hover {
+  box-shadow: var(--word-file-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.excel-file::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f1c3";
+  margin-right: 5px;
+}
+
+.excel-file:hover {
+  box-shadow: var(--excel-file-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.html-file::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f1c9";
+  margin-right: 5px;
+}
+
+.html-file:hover {
+  box-shadow: var(--html-file-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.drive-folder::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f07b";
+  margin-right: 5px;
+}
+
+.drive-folder:hover {
+  box-shadow: var(--google-drive-folder-bg-color) 0 1px 30px;
+  transform: translateY(-1px);
+}
+
+.pdf-file:active,
+.audio-file:active,
+.pdf-file-workbook:active,
+.word-file:active,
+.excel-file:active,
+.html-file:active,
+.drive-folder:active {
+  transform: translateY(0);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+}
+
+/* Styling the Mark element */
+
+mark {
+  outline: 0.1em solid green;
+  outline-offset: 0.1em;
+  margin: 0.1em 0;
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
